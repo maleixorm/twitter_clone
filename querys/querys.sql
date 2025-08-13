@@ -8,3 +8,5 @@ create table usuarios(
 	email varchar(150) not null,
 	senha varchar(32) not null
 );
+
+select * from usuarios;
