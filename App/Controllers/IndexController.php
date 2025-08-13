@@ -14,4 +14,10 @@ class IndexController extends Action {
     public function inscreverse() {
         $this->render('inscreverse');
     }
+    public function registrar() {
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+        // $this->render('registrar');
+    }
 }
