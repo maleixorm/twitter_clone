@@ -23,4 +23,10 @@ class AuthController extends Action {
             header("Location: /?login=erro");
         }
     }
+
+    public function sair() {
+        session_start();
+        session_destroy();
+        header("Location: /");
+    }
 }
