@@ -12,9 +12,12 @@ class AuthController extends Action {
         $usuario = Container::getModel('Usuario');
         $usuario->__set('email', $_POST['email']);
         $usuario->__set('senha', $_POST['senha']);
-        $retorno = $usuario->autenticar();
-        echo '<pre>';
-        print_r($retorno);
-        echo '</pre>';
+        $usuario->autenticar();
+        
+        if (!empty($usuario->__get('id')) && !empty($usuario->__get('nome'))) {
+            echo 'Autenticado!';
+        } else {
+            header("Location: /?login=erro");
+        }
     }
 }
