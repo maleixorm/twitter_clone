@@ -10,3 +10,7 @@ create table usuarios(
 );
 
 select * from usuarios;
+
+alter table usuarios modify senha varchar(32);
+
+truncate usuarios;
