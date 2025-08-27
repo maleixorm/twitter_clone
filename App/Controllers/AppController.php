@@ -17,4 +17,16 @@ class AppController extends Action {
             header('Location: /?login=erro');
         }
     }
+
+    public function tweet() {
+        session_start();
+
+        if (!empty($_SESSION['id']) && !empty($_SESSION['nome'])) {
+            echo '<pre>';
+            print_r($_POST);
+            echo '</pre>';
+        } else {
+            header('Location: /?login=erro');
+        }
+    }
 }
