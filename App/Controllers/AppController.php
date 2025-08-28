@@ -8,6 +8,13 @@ use MF\Model\Container;
 
 class AppController extends Action {
     
+    public function validaAutenticacao() {
+        session_start();
+        if (!isset($_SESSION['id']) || empty($_SESSION['id']) || !isset($_SESSION['nome']) || empty($_SESSION['nome'])) {
+            header('Location: /?login=erro');
+        }
+    }
+    
     public function timeline() {
         $this->validaAutenticacao();
         $tweet = Container::getModel('Tweet');
@@ -26,10 +33,9 @@ class AppController extends Action {
         $tweet->salvar();
     }
 
-    public function validaAutenticacao() {
-        session_start();
-        if (!isset($_SESSION['id']) || empty($_SESSION['id']) || !isset($_SESSION['nome']) || empty($_SESSION['nome'])) {
-            header('Location: /?login=erro');
-        }
+
+    public function quemSeguir() {
+        $this->validaAutenticacao();
+        $this->render('quemSeguir');
     }
 }
