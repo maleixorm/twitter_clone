@@ -79,4 +79,12 @@ class Usuario extends Model {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function seguirUsuario($id_usuario_seguindo) {
+        echo 'seguir o usuario';
+    }
+    
+    public function deixarSeguirUsuario($id_usuario_seguindo) {
+        echo 'deixar de seguir o usuario';
+    }
 }
