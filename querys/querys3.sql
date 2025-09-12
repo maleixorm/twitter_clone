@@ -7,5 +7,5 @@ create table usuarios_seguidores(
 ALTER TABLE usuarios_seguidores RENAME COLUMN id_usuario_seguidores TO id_usuario_seguindo;
 
 select * from usuarios_seguidores;
-
+select * from tweets;
 select * from usuarios;
