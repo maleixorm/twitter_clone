@@ -99,4 +99,14 @@ class Usuario extends Model {
         $stmt->execute();
         return true;
     }
+
+    // Informações do Usuario
+    public function getInfoUsuario() {
+        $query = "SELECT nome FROM usuarios WHERE id = :id_usuario";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->__get('id'));
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
 }
