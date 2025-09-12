@@ -118,5 +118,12 @@ class Usuario extends Model {
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    //
+    // Total de usuários que estamos seguindo
+    public function getTotalSeguindo() {
+        $query = "SELECT count(*) as total_seguindo FROM usuarios_seguidores WHERE id_usuario = :id_usuario";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->__get('id'));
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
 }
